@@ -7,7 +7,8 @@ class API
     def get_spell
         uri = URI(url)
         response = Net::HTTP.get(uri)
-        data = JSON.parse(response)
+        data = JSON.parse(response.body)
+       
 
         all_spells = data("results")
 
@@ -15,6 +16,6 @@ class API
             Spell.new(p)
         end 
     end 
-binding.pry
+ binding.pry
 
 end 
