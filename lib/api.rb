@@ -4,18 +4,18 @@ class API
         @url = "https://donmallory.tech/rkSpells.json"
     end 
 
-    def get_spell
-        uri = URI(url)
+    def run
+        uri = URI(@url)
         response = Net::HTTP.get(uri)
-        data = JSON.parse(response.body)
+        data = JSON.parse(response)
        
+binding.pry
+        # all_spells = data("results")
 
-        all_spells = data("results")
-
-        all_spells.each do |p|
-            Spell.new(p)
-        end 
+        # all_spells.each do |p|
+        #     Spell.new(p)
+        # end 
     end 
- binding.pry
+
 
 end 
