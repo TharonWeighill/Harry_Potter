@@ -1,18 +1,18 @@
 class Spell
 
-    @@all = []
 
+@@all = []
         def initialize(spell)
           spell.each do |key, value| 
             self.class.attr_accessor(key)
             self.send(("#{key}="), value)
-            @@all << self 
+            @@all << spell
           end
         end
     
-        def self.all
-            @@all
-         end 
+        # def self.all
+        #     @@all
+        #  end 
 
     # def initialize(data)
     #     data.each do |current|
@@ -31,5 +31,4 @@ class Spell
     #     @@all
     # end 
 end 
-binding.pry
 
