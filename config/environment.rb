@@ -5,5 +5,5 @@ require "colorize"
 require "open-uri"
 
 require_relative '../lib/api'
-require_relative '../lib/class'
+require_relative '../lib/spell'
 require_relative '../lib/cli'

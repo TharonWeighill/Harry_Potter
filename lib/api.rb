@@ -17,6 +17,5 @@ class API
         end 
     end 
  
-API.new.create_spell
-binding.pry
+
 end 
