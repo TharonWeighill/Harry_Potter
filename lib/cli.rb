@@ -9,21 +9,24 @@ class CLI
         API.new
         spell = Spell.all
         greeting
-        binding.pry
     end      
 
     def greeting
-        puts"                                                                              Welcome to the Wizarding World!                   "
+        puts"                                                                              Welcome to the Wizarding World!"
         menu 
     end 
 
     def menu
-        puts"                                                                               What kind of wizard are you?                     "
-        puts"                                                             Choose a spell to cast on your best friend or your worst enemy!    "
-    
+        puts"                                                         *                     What kind of wizard are you?                          * "
+        puts"                                                         |  Choose a type of spell to cast on your best friend or your worst enemy!  | "
        Spell.types.each.with_index(1) do |type, index|
-        puts "                                                                                        #{index}.#{type}                           "
-       end 
+        puts " * "
+        puts " | "
+        puts "#{index}.#{type}"
+       
+       
+    
+    end 
         #options and prompt
         #display menu 
         #take input
