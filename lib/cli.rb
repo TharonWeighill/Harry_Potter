@@ -13,14 +13,20 @@ class CLI
     end      
 
     def greeting
-        puts ""
+        puts"                                                                              Welcome to the Wizarding World!                   "
         menu 
     end 
 
     def menu
-    #options and prompt
-    #display menu 
-    #take input
+        puts"                                                                               What kind of wizard are you?                     "
+        puts"                                                             Choose a spell to cast on your best friend or your worst enemy!    "
+    
+       Spell.types.each.with_index(1) do |type, index|
+        puts "                                                                                        #{index}.#{type}                           "
+       end 
+        #options and prompt
+        #display menu 
+        #take input
     end
 
 
