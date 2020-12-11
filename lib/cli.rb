@@ -5,13 +5,13 @@ require_relative "../config/environment.rb"
 
 class CLI
    
-    def initialize
+    def run
         API.new
-        puts Spell.all
-        @spell = Spell.all
-        binding.pry
+        spell = Spell.all
         greeting
+        binding.pry
     end      
+
     def greeting
         puts ""
         menu 
@@ -19,8 +19,10 @@ class CLI
 
     def menu
     #options and prompt
-    #display menu take input
+    #display menu 
+    #take input
     end
+
 
 
 end

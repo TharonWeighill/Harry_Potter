@@ -3,29 +3,18 @@ require_relative "../config/environment.rb"
 
 class Spell
 
-  @@all = []
+    @@all = []
 
   def initialize(hash)
     @@all << self 
-   
-    hash.each do |key, value|
-      self.class.send(:attr_accessor, key)
-      self.send("#{key}=", value)
-      
-      
-      # self.class.attr_accessor(key)
-      # self.send(("#{key}="), value)
-      
+      hash.each do |key, value|
+      self.class.attr_accessor(key)
+      self.send("#{key}=", value
     end
-    
   end
-
 
   def self.all
     @@all 
   end 
-  
-
-
 end 
 
