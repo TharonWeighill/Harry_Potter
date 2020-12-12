@@ -4,7 +4,9 @@ require_relative "../config/environment.rb"
 class Spell
 
     @@all = []
-    @@types = []
+    @@type = []
+    @@name = []
+    @@effect = []
 
   def initialize(hash)
     @@all << self 
@@ -13,7 +15,9 @@ class Spell
       self.send("#{key}=", value)
     end
  
-    @@types << self.type
+    @@type << self.type
+    @@name << self.spell
+    @@effect << self.effect
 
   end
 
@@ -21,12 +25,29 @@ class Spell
     @@all.select { |spell| spell.type == type}
   end
 
-  def self.types
-      @@types.uniq 
+  def self.search_by_name(name)
+    @@all.select { |spell| spell.spell == name}
+  end
+
+  def self.search_by_effect(effect)
+    @@all.select { |spell| spell.effect == type}
   end
 
   def self.all
     @@all 
   end 
+  
+  def self.type
+    @@type.uniq 
+  end
+
+  def self.name
+    @@name
+  end 
+
+  def self.effect
+    @@effect
+  end 
+
 end 
 
