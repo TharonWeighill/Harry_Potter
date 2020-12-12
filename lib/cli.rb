@@ -35,31 +35,28 @@ class CLI
         
         
         
-        "
+        
+"
        Spell.type.each.with_index(1) do |type, index|
-            puts "#{index}.#{type}"
+        puts "#{index}.#{type}"
         end 
-            puts "
+        puts "
 Enter a number"
-            enter
+         enter
     end 
         
     def enter
         input = gets.chomp()
         index = (input.to_i) - 1
         chosen_type = Spell.type[index]
-     
+        puts"                                                                                You have chosen to cast a #{chosen_type}!"   
+        if chosen_type = (7) 
+            puts "Sorry that's not a spell type!"
+    
+        end
 
-            puts"                                                                             You have chosen to cast a #{chosen_type}!"   
-  chosen_spell = spell.search_by_name(chosen_type)
-  puts chosen_spell
-        
-        
-
-
-
+        chosen_spell = Spell.name.each.with_index(1) do |name, index|
+        puts "#{index}.#{name}"
+        end 
     end 
-
-
-
 end

@@ -16,7 +16,7 @@ class Spell
     end
  
     @@type << self.type
-    @@name << self.spell
+    @@name << self
     @@effect << self.effect
 
   end
@@ -26,11 +26,11 @@ class Spell
   end
 
   def self.search_by_name(name)
-    @@all.select { |spell| spell.spell == name}
+    @@all.select { |spell| spell.name == name}
   end
 
   def self.search_by_effect(effect)
-    @@all.select { |spell| spell.effect == type}
+    @@all.select { |spell| spell.effect == effect}
   end
 
   def self.all
