@@ -37,26 +37,35 @@ class CLI
         
         
 "
-       Spell.type.each.with_index(1) do |type, index|
-        puts "#{index}.#{type}"
-        end 
+        print_spell_types() 
+        
+        
         puts "
 Enter a number"
-         enter
+        enter
     end 
         
+    def print_spell_types
+        Spell.type.each.with_index(1) do |type, index|
+            puts "#{index}.#{type}"
+        end 
+    end
+        
+        
     def enter
+        print_spell_types 
         input = gets.chomp()
-        index = (input.to_i) - 1
-        chosen_type = Spell.type[index]
-        puts"                                                                                You have chosen to cast a #{chosen_type}!"   
-        if chosen_type = (7) 
+        if input.to_i >= 7 || input.to_i == 0
             puts "Sorry that's not a spell type!"
-    
-        end
-
-        chosen_spell = Spell.name.each.with_index(1) do |name, index|
-        puts "#{index}.#{name}"
+            enter
+        else
+            index = (input.to_i) - 1
+            chosen_type = Spell.type[index]
+            puts"                                                                           You have chosen to cast a #{chosen_type}!"   
+       
+            chosen_spell = Spell.name.each.with_index(1) do |name, index|
+                puts "#{index}.#{name}"
+            end
         end 
     end 
 end
