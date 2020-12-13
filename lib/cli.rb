@@ -1,6 +1,7 @@
 # #handle all puts and gets "user interaction"
 # class CLI 
 # end 
+require "ostruct"
 require_relative "../config/environment.rb"
 
 class CLI
@@ -77,11 +78,16 @@ Enter a number"
         @chosen_spells = []
         Spell.all.each do |s|
             if s.type == @chosen_type
-                @chosen_spells << s.spell
+                chosen_spell = OpenStruct.new
+                chosen_spell.name = s.spell
+                chosen_spell.effect = s.effect
+                @chosen_spells << chosen_spell  
+                #@chosen_spells << s.spell
+            puts s.effect
             end 
         end    
         chosen_spells.each.with_index(1) do |s, index|
-            puts "#{index}. #{s}"
+            puts "#{index}. #{s.name}"
         end     
     end 
 
@@ -94,15 +100,15 @@ Enter a number"
         get_spell_names
 
         input = gets.chomp()
-    if  input.to_i == 0 || input.to_i > chosen_spells.length
-        puts "\nThat's not a spell, try again!"
-        enter_spell
-    
-    else 
-        index = (input.to_i) - 1
-        puts " You have chosen #{@chosen_spells[index]}"
+        if  input.to_i == 0 || input.to_i > chosen_spells.length
+            puts "\nThat's not a spell, try again!"
+            enter_spell
         
-    end 
+        else 
+            index = (input.to_i) - 1
+            puts " You have chosen #{@chosen_spells[index].name}. It is  #{@chosen_spells[index].effect}!"
+            
+        end 
 
     end 
 
