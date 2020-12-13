@@ -4,7 +4,7 @@
 require_relative "../config/environment.rb"
 
 class CLI
-    attr_accessor  :chosen_type
+    attr_accessor  :chosen_type, :chosen_spells
 
     
    
@@ -51,7 +51,7 @@ Enter a number"
         
     def print_spell_types
         Spell.type.each.with_index(1) do |type, index|
-            puts "#{index}.#{type}"
+            puts "#{index}. #{type}"
         end 
     end
         
@@ -73,21 +73,39 @@ Enter a number"
     end     
 
         def print_spell_names
-            chosen_spells = []
+            @chosen_spells = []
             index = 1
             Spell.all.each { |s|
         if s.type == @chosen_type
             chosen_spells << "#{index}. #{s.spell}" 
-        index += 1 
+            index += 1 
         end 
         }    
+            puts @chosen_spells 
 
-            chosen_spells      
+            enter_spell     
        
         end 
     
+        def enter_spell
+            puts "\nEnter the number of the spell you want to cast"
+            input = gets.chomp()
+        if  input.to_i == 0 || input.to_i > chosen_spells.length
+            puts "\npooooooooo"
+            enter_spell
+        
+        else 
+            print "You're a Wizard!!!!!"
+        end 
+
+        end 
 
     
 end
+
+
+
+
+
 
 # Spell.all.select { |s|s.type = chosen_type }

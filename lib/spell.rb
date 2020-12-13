@@ -15,7 +15,6 @@ class Spell
  
     @@type << self.type
     
-
   end
 
   def self.search_by_type(type)
