@@ -47,6 +47,7 @@ class CLI
         puts "
 Enter a number"
         enter_type
+        enter_spell
     end 
         
     def print_spell_types
@@ -66,39 +67,44 @@ Enter a number"
             index = (input.to_i) - 1
             @chosen_type = Spell.type[index]
             puts"                                                                           You have chosen to cast a #{@chosen_type}!"   
-            puts print_spell_names
+            
         end
         
         
     end     
 
-        def print_spell_names
-            @chosen_spells = []
-            index = 1
-            Spell.all.each { |s|
-        if s.type == @chosen_type
-            chosen_spells << "#{index}. #{s.spell}" 
-            index += 1 
-        end 
-        }    
-            puts @chosen_spells 
+    def get_spell_names
+        @chosen_spells = []
+        Spell.all.each do |s|
+            if s.type == @chosen_type
+                @chosen_spells << s.spell
+            end 
+        end    
+        chosen_spells.each.with_index(1) do |s, index|
+            puts "#{index}. #{s}"
+        end     
+    end 
 
-            enter_spell     
-       
-        end 
-    
-        def enter_spell
-            puts "\nEnter the number of the spell you want to cast"
-            input = gets.chomp()
-        if  input.to_i == 0 || input.to_i > chosen_spells.length
-            puts "\npooooooooo"
-            enter_spell
         
-        else 
-            print "You're a Wizard!!!!!"
-        end 
+        
 
-        end 
+
+    def enter_spell
+        puts "\nEnter the number of the spell you want to cast"
+        get_spell_names
+
+        input = gets.chomp()
+    if  input.to_i == 0 || input.to_i > chosen_spells.length
+        puts "\nThat's not a spell, try again!"
+        enter_spell
+    
+    else 
+        index = (input.to_i) - 1
+        puts " You have chosen #{@chosen_spells[index]}"
+        
+    end 
+
+    end 
 
     
 end
