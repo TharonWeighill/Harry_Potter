@@ -24,8 +24,8 @@ class CLI
         puts"\n\n\n\n"
         puts"\t\t\t\t\t\t\t\t*                     What kind of wizard are you?                          * "
         puts"\t\t\t\t\t\t\t\t|  Choose a type of spell to cast on your best friend or your worst enemy!  | "
-        puts "\n\n\n\n\n\n\n\n\n\n"
-        puts "\nEnter a number"
+        puts "\n\n\n\n\n\n"
+        puts "Enter a number\n\n"
         
         enter_type
         enter_spell
@@ -44,14 +44,14 @@ class CLI
         input = gets.chomp()
         
         if input.to_i >= Spell.type.length || input.to_i == 0
-            puts "\n\n\t  Sorry that's not a spell type!\n\n“Once again, you show all the sensitivity of a blunt axe.”
+            puts "\n\n\tSorry that's not a spell type!\n\n“Once again, you show all the sensitivity of a blunt axe.”
             – Nearly Headless Nick\n\n"
             enter_type
         else
             index = (input.to_i) - 1
             @chosen_type = Spell.type[index]
             
-            puts"                                                                           You have chosen to cast a #{@chosen_type}!"   
+            puts"\n\nYou have chosen to cast a #{@chosen_type}!\n\n"   
          end
     end     
 
@@ -76,16 +76,16 @@ class CLI
         get_spell_names
         input = gets.chomp()
         if  input.to_i == 0 || input.to_i > chosen_spells.length
-            puts "\nThat's not a spell, try again!"
+            puts "\n\nThat's not a spell, try again!\n\nHonestly, if you were any slower, you’d be going backward. — Draco Malfoy"
             enter_spell
         else 
             index = (input.to_i) - 1
-            puts "You have chosen #{@chosen_spells[index].name}. It is #{@chosen_spells[index].effect}!"
+            puts "\nYou have chosen #{@chosen_spells[index].name}.\n\nIT #{@chosen_spells[index].effect.upcase}!"
         end 
     end 
     
     def replay
-        puts "Still feeling magical? (y) to play again (n) to quit"
+        puts "\n\nStill feeling magical?\n(y) to play again (n) to quit"
         input = gets.chomp()
         if input == "n"
             puts "\n\n“It does not do well to dwell on dreams and forget to live.” – Albus Dumbledore\n\n"
