@@ -1,9 +1,3 @@
-# #handle all puts and gets "user interaction"
-# class CLI 
-# end 
-require "ostruct"
-require_relative "../config/environment.rb"
-
 class CLI
     attr_accessor  :chosen_type, :chosen_spells
 

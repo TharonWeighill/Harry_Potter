@@ -1,5 +1,3 @@
-#getting data 
-require_relative "../config/environment.rb"
 class API
 
     def initialize

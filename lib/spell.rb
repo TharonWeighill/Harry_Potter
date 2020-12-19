@@ -1,6 +1,3 @@
-#stores all data for cli to get out 
-require_relative "../config/environment.rb"
-
 class Spell
 
     @@all = []
