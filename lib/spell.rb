@@ -26,5 +26,9 @@ class Spell
     @@type.uniq 
   end
 
+  # def self.top_five_alpha_sorted_spells_by_type(type)
+#   sorted_spells_by_type = self.search_by_type(type).sort_by {|s| s.spell}
+#   return sorted_spells_by_type[0..4]
+# end
 end 
 
